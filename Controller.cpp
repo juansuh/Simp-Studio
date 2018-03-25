@@ -30,6 +30,5 @@ public:
 private:
 	bool play = false; //if play is true, track is playing. if false, stops at current position.
 	int tempo = 100; //determines speed of playback in bpm. If stopped, tempo retains its value for future playback. 100 bpm is standard, used in CPR and "Staying Alive"
-	bool loop = false: //if loop is true, when the end is reached, will start from the beginning, allowing program to work as a beatmixer or a song-maker. achieved w/ do-while loop
 };
 //Added by Adam Weizman, 2/20/2018
