@@ -57,36 +57,34 @@ void Track::beatTap(int instrument, int location) {
 	if (instrument == 0) {
 		for (int j = 0; j < beatList[instrument].size(); j++) {
 			if (j == location) {
-				if (!beatList[instrument][location]) { beatList[instrument][location] = true; }
-				else { beatList[instrument][location] = false; }
+				beatList[instrument][location] = !beatList[instrument][location];
 			}
 		}
 	}
 	else if (instrument == 1) {
 		for (int j = 0; j < beatList[instrument].size(); j++) {
 			if (j == location) {
-				if (!beatList[instrument][location]) { beatList[instrument][location] = true; }
-				else { beatList[instrument][location] = false; }
+				beatList[instrument][location] = !beatList[instrument][location];
 			}
 		}
 	}
 	else if (instrument == 2) {
 		for (int j = 0; j < beatList[instrument].size(); j++) {
 			if (j == location) {
-				if (!beatList[instrument][location]) { beatList[instrument][location] = true; }
-				else { beatList[instrument][location] = false; }
+				beatList[instrument][location] = !beatList[instrument][location];
 			}
 		}
 	}
 	else if (instrument == 3) {
 		for (int j = 0; j < beatList[instrument].size(); j++) {
 			if (j == location) {
-				if (!beatList[instrument][location]) { beatList[instrument][location] = true; }
-				else { beatList[instrument][location] = false; }
+				beatList[instrument][location] = !beatList[instrument][location];
 			}
 		}
 	}
 }
+
+vector < vector < bool > > Track::getBeatList() { return beatList; }
 
 void Track::clear() {
 
@@ -95,11 +93,6 @@ void Track::clear() {
 			beatList[i][j] = false;
 		}
 	}
-}
-
-int main() {
-	
-	return 0;
 }
 
 Track::~Track()

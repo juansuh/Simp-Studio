@@ -7,7 +7,8 @@ class Track
 {
 public:
 	vector < vector < bool > > beatList; //2D array which will store where notes have been selected
-
+	
+	vector < vector < bool > > getBeatList();
 	Track(int tempo, int timeSig);
 	void setTempo(int tempo);
 	int getTempo();
