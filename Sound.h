@@ -12,6 +12,5 @@ public:
 
 private:
 	string buffer;
-	string filePath;
 };
 

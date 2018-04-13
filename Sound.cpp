@@ -1,21 +1,21 @@
 #include "Sound.h"
-#include <mmsystem.h>
-#include <mciapi.h>
-#define PlaySound 
-#pragma comment(lib, "winmm.lib")
+#include <Windows.h>
+#include <MMsystem.h>
+#define mciSendString
+#pragma comment(lib, "Winmm.lib")
 
 using namespace std;
 
 Sound::Sound(string fileName)
 {
 	buffer = fileName;
-	filePath = ""; //this is where the filepath will go, where all sound files are stored
 }
 
 void Sound::play() {
-	PlaySound(filePath + buffer, NULL, SND_FILENAME);
+	PlaySound(buffer.c_str(), NULL, SND_SYNC);
 }
 
 Sound::~Sound()
 {
 }
+
