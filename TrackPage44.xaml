@@ -1,0 +1,372 @@
+﻿<Page
+    x:Class="SimpG.TrackPage44"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpG"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" MinHeight = "220" MaxHeight="220" MinWidth = "340" MaxWidth="340" Height="220" Width="340">
+
+
+    <Grid x:Name="trackGrid" RequestedTheme="Light" Background="#263238" Margin="0,1,0,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="27" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border x:Name="KG1" Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick1" Tapped="Kick1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F" Height="16"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick2" Tapped="Kick2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick3" Tapped="Kick3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick4" Tapped="Kick4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick6" Tapped="Kick6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick7" Tapped="Kick7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick8" Tapped="Kick8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick9" Tapped="Kick9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick11" Tapped="Kick11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick12" Tapped="Kick12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick13" Tapped="Kick13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick14" Tapped="Kick14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick16" Tapped="Kick16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick17" Tapped="Kick17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick18" Tapped="Kick18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="19" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Kick19" Tapped="Kick19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare1" Tapped="Snare1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090 "/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare2" Tapped="Snare2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare3" Tapped="Snare3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare4" Tapped="Snare4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare6" Tapped="Snare6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare7" Tapped="Snare7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare8" Tapped="Snare8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare9" Tapped="Snare9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare11" Tapped="Snare11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare12" Tapped="Snare12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare13" Tapped="Snare13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare14" Tapped="Snare14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare16" Tapped="Snare16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare17" Tapped="Snare17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare18" Tapped="Snare18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="19" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Snare19" Tapped="Snare19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap1" Tapped="Clap1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap2" Tapped="Clap2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap3" Tapped="Clap3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap4" Tapped="Clap4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap6" Tapped="Clap6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap7" Tapped="Clap7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap8" Tapped="Clap8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap9" Tapped="Clap9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap11" Tapped="Clap11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap12" Tapped="Clap12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap13" Tapped="Clap13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap14" Tapped="Clap14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap16" Tapped="Clap16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap17" Tapped="Clap17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap18" Tapped="Clap18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="19" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Clap19" Tapped="Clap19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat1" Tapped="OHat1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat2" Tapped="OHat2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat3" Tapped="OHat3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat4" Tapped="OHat4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat6" Tapped="OHat6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat7" Tapped="OHat7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat8" Tapped="OHat8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat9" Tapped="OHat9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat11" Tapped="OHat11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat12" Tapped="OHat12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat13" Tapped="OHat13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat14" Tapped="OHat14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat16" Tapped="OHat16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat17" Tapped="OHat17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat18" Tapped="OHat18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="19" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="OHat19" Tapped="OHat19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat1" Tapped="CHat1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat2" Tapped="CHat2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat3" Tapped="CHat3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat4" Tapped="CHat4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat6" Tapped="CHat6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat7" Tapped="CHat7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat8" Tapped="CHat8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat9" Tapped="CHat9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat11" Tapped="CHat11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat12" Tapped="CHat12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat13" Tapped="CHat13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat14" Tapped="CHat14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat16" Tapped="CHat16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat17" Tapped="CHat17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat18" Tapped="CHat18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="19" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="CHat19" Tapped="CHat19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+
+        <Border Grid.Column="1" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom1" Tapped="Tom1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom2" Tapped="Tom2_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom3" Tapped="Tom3_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom4" Tapped="Tom4_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="6" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom6" Tapped="Tom6_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom7" Tapped="Tom7_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom8" Tapped="Tom8_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom9" Tapped="Tom9_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="11" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom11" Tapped="Tom11_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="12" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom12" Tapped="Tom12_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="13" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom13" Tapped="Tom13_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom14" Tapped="Tom14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="16" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom16" Tapped="Tom16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom17" Tapped="Tom17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="18" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom18" Tapped="Tom18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="19" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:Name="Tom19" Tapped="Tom19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Button x:Name="playpause" Content="Play/Pause" Grid.Column ="1" Grid.Row="13" Grid.ColumnSpan="6" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button x:Name="clear" Content="Clear" Grid.Column ="12" Grid.Row="13" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,0,0,0" Click="clear_Click"/>
+        <Button x:Name="New" Content="New" Grid.Column ="16" Grid.Row="13" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Rectangle x:Name="playhead" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Height="10" Fill="White" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Page>
