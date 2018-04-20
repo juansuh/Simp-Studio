@@ -6,16 +6,28 @@
 
 using namespace std;
 
-Sound::Sound(string fileName)
+Sound::Sound(int filetype)
 {
-	buffer = fileName;
+	buffer = to_string(filetype);
 }
 
-void Sound::play() {
-	PlaySound(buffer.c_str(), NULL, SND_SYNC);
+void Sound::play(vector<bool> bitArray) {
+
+	string playQueue = buffer;
+	for (int i = 0; i < bitArray.size(); i++) {
+		if (bitArray[i]) { playQueue = playQueue + "1"; }
+		else             { playQueue = playQueue + "0"; }
+	}
+	playQueue = playQueue + ".wav";
+
+	PlaySound(playQueue.c_str(), NULL, SND_SYNC);
 }
 
 Sound::~Sound()
 {
+}
+
+int main(){
+	return 0;
 }
 

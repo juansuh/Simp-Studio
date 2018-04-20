@@ -1,13 +1,14 @@
 #pragma once
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Sound
 {
 public:
-	Sound(string fileName);
-	void play();
+	Sound(int fileType);
+	void play(vector<bool> bitArray);
 	~Sound();
 
 private:
