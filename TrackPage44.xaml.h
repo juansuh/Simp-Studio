@@ -20,6 +20,8 @@ namespace SimpG
 		TrackPage44();
 
 	private:
+		
+		int tempo;
 		void Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void Kick1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void Kick2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
@@ -122,10 +124,12 @@ namespace SimpG
 		void Tom17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void Tom18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
 		void Tom19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e);
-		void Kick1_PointerEntered(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
 
 		void Button_Click_1(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void clear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-		void play();
+		void updateProgress(Windows::Foundation::IAsyncActionWithProgress<int>^ action, int progress);
+		Windows::Foundation::IAsyncActionWithProgress<int>^ play(int startColumn);
+		void Pause_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void loopThreadHandler();
 };
 }

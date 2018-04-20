@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include <ppltasks.h>
+#include <concrt.h>
 using namespace SimpG;
 
 using namespace Platform;
@@ -35,7 +36,7 @@ TrackPage44::TrackPage44()
 Track1 track(60, 1);
 bool playing = false;
 int tempo = 60;
-int sleepTime = 1000 * 60 / tempo;
+int sleepTime = 10000000 * 60 / tempo;
 
 void SimpG::TrackPage44::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
@@ -1483,26 +1484,65 @@ void SimpG::TrackPage44::Tom19_Tapped(Platform::Object^ sender, Windows::UI::Xam
 	tom19toggle = !tom19toggle;
 }
 
-int beat = 0;
-void SimpG::TrackPage44::Button_Click_1(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
-{
-	playing = !playing;
-	//Play and pause
-	vector<vector<bool>> trackList = track.beatList;
-	vector<int> playheadPositions = { 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19 };
-	IAsyncOperation<DeviceInformationCollection^>^ deviceOp = DeviceInformation::FindAllAsync();
-	auto deviceEnumTask = create_task(deviceOp);
-	deviceEnumTask.then([this](DeviceInformationCollection^ devices)
-	{
-		play();
+cancellation_token_source cancelToken;
+IAsyncActionWithProgress<int>^ SimpG::TrackPage44::play(int startColumn) {
+	auto token = cancelToken.get_token();
+	return create_async([this, startColumn, token](progress_reporter<int> reporter)
+	{	
+		int startIndex = startColumn; // trackGrid->GetColumn(playhead);
+		
+		for (int i = 0; i < 160; i++) {
+			try {
+				reporter.report(startIndex);
+				startIndex++;
+				//Loop back to beginning
+				if (startIndex == 20) {
+					startIndex = 0;
+				}
+				//Skip empty columns
+				if (startIndex % 5 == 0) {
+					startIndex++;
+				}
+				//Sleep time dependent on tempo
+				Sleep(1000);
+				//play sound here i think
+					//fix parameters for sound
+			} catch (task_canceled e) {
+				reporter.report(21);
+				cancel_current_task();
+			}
+			//Check on each iteration if cancellation token has been activated
+		}
 	});
 }
+void SimpG::TrackPage44::loopThreadHandler() {
 
-void SimpG::TrackPage44::play() {
-	trackGrid->SetColumn(playhead, 2);
-	Sleep(sleepTime);
-	trackGrid->SetColumn(playhead, 3);
+	cancellation_token_source pauseLoop;
+	cancelToken = pauseLoop;
+	auto token = pauseLoop.get_token();
+	//Finds the current location of the playhead, and pass it into async lambda
+	int currentColumn = trackGrid->GetColumn(playhead);
+	//Create function to loop through GUI
+	auto loop = play(currentColumn);
+	//Track the progress and pass ito to updateProgress()
+	loop->Progress = ref new AsyncActionProgressHandler<int>(this, &TrackPage44::updateProgress);
+	//Pass looping function into asynchronous operation
+	auto loopThread = create_task(loop, token);
+	loopThread.then([this]() {
+		Sleep(10);
+	});
 }
+void SimpG::TrackPage44::updateProgress(IAsyncActionWithProgress<int>^ action, int progress) {
+	//Update the GUI thread with progress values from async thread
+	trackGrid->SetColumn(playhead, progress);
+}
+void SimpG::TrackPage44::Button_Click_1(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	//Play
+	loopThreadHandler();
+	//Await end
+}
+
 
 void SimpG::TrackPage44::clear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
@@ -1614,4 +1654,11 @@ void SimpG::TrackPage44::clear_Click(Platform::Object^ sender, Windows::UI::Xaml
 	Tom17->Fill = returnColor2;
 	Tom18->Fill = returnColor2;
 	Tom19->Fill = returnColor2;
+}
+
+
+void SimpG::TrackPage44::Pause_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	//Create cancellation token
+	cancelToken.cancel();
 }

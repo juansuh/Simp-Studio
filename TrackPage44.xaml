@@ -363,10 +363,12 @@
             <Rectangle x:Name="Tom19" Tapped="Tom19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
         </Border>
 
-        <Button x:Name="playpause" Content="Play/Pause" Grid.Column ="1" Grid.Row="13" Grid.ColumnSpan="6" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button x:Name="playpause" Content="Play" Grid.Column ="1" Grid.Row="13" Grid.ColumnSpan="6" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click_1"/>
         <Button x:Name="clear" Content="Clear" Grid.Column ="12" Grid.Row="13" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,0,0,0" Click="clear_Click"/>
         <Button x:Name="New" Content="New" Grid.Column ="16" Grid.Row="13" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Rectangle x:Name="playhead" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Height="10" Fill="White" VerticalAlignment="Bottom"/>
+        <Rectangle x:Name="playhead" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Fill="White" VerticalAlignment="Bottom"/>
+        <Button x:Name="Pause" Content="Pause" Grid.Column="5" Grid.Row="13" HorizontalAlignment="Left"  Grid.ColumnSpan="4" VerticalAlignment="Top" Click="Pause_Click"/>
+        <ProgressBar x:Name="playheadBar" Grid.Column="1" Grid.ColumnSpan="19" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Grid.RowSpan="1" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Page>
