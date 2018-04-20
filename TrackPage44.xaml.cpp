@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "TrackPage44.xaml.h"
+#include "Sound.h"
 #include "Track1.h"
 #include <vector>
 #include <iostream>
@@ -1487,10 +1488,11 @@ void SimpG::TrackPage44::Tom19_Tapped(Platform::Object^ sender, Windows::UI::Xam
 cancellation_token_source cancelToken;
 IAsyncActionWithProgress<int>^ SimpG::TrackPage44::play(int startColumn) {
 	auto token = cancelToken.get_token();
+	Sound player = new Sound(1); //PLAYER SHOULD BE INITIALIZED WHENEVER THE GENRE IS SELECTED
 	return create_async([this, startColumn, token](progress_reporter<int> reporter)
 	{	
 		int startIndex = startColumn; // trackGrid->GetColumn(playhead);
-		
+		int counter = startColumn - (startColumn/4 + 1)
 		for (int i = 0; i < 160; i++) {
 			try {
 				reporter.report(startIndex);
@@ -1505,13 +1507,15 @@ IAsyncActionWithProgress<int>^ SimpG::TrackPage44::play(int startColumn) {
 				}
 				//Sleep time dependent on tempo
 				Sleep(1000);
-				//play sound here i think
+				player.play(track.beatList[counter]);
 					//fix parameters for sound
 			} catch (task_canceled e) {
 				reporter.report(21);
 				cancel_current_task();
 			}
 			//Check on each iteration if cancellation token has been activated
+			if (counter < 16) { counter++; }
+			else { counter = 0; }
 		}
 	});
 }
