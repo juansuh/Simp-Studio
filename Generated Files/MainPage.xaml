@@ -23,13 +23,14 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Tempo</TextBlock>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" TextAlignment="Right">Time Signature</TextBlock>
-        <TextBox x:Name="Tempo" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Center" PlaceholderText="" Text="60" InputScope="Number" Width="67"></TextBox>
-        <ComboBox x:Name="TimeSig" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="" SelectedIndex="0">
+        <TextBox x:ConnectionId='1' x:Name="Tempo" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Center" PlaceholderText="" Text="60" InputScope="Number" Width="67"></TextBox>
+        <ComboBox x:ConnectionId='2' x:Name="TimeSig" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="" SelectedIndex="0">
             <ComboBoxItem>4/4</ComboBoxItem>
             <ComboBoxItem>3/4</ComboBoxItem>
             <ComboBoxItem>6/8</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="Create" Foreground="White" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3,11,2,12" FontFamily="Segoe UI" Click="Button_Click_1">Create</Button>
+        <Button x:ConnectionId='3' x:Name="Create" Foreground="White" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3,11,2,12" FontFamily="Segoe UI"                       >Create</Button>
         <Image Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="0" Source="Assets/IMG_1564.jpg" HorizontalAlignment="Center" Height="60" Grid.RowSpan="4" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Page>
+

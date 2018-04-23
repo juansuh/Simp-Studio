@@ -5,12 +5,15 @@
 
 #include "pch.h"
 #include "TrackPage44.xaml.h"
-#include "Sound.h"
-#include "Track1.h"
+//#include "Sound.h"
+//#include "Track1.h"
 #include <vector>
 #include <iostream>
 #include <ppltasks.h>
 #include <concrt.h>
+#include <Xaudio2.h>
+#include <WinBase.h>
+#include <Windows.h>
 using namespace SimpG;
 
 using namespace Platform;
@@ -34,21 +37,44 @@ TrackPage44::TrackPage44()
 {
 	InitializeComponent();
 }
-Track1 track(60, 1);
-bool playing = false;
-int tempo = 60;
-int sleepTime = 10000000 * 60 / tempo;
 
+bool playing = false;
+int sleepTime = 1000;
+//Instrumentation grid
+bool beatList[16][6] = {	{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false },
+							{ false, false, false, false, false } };
+
+void TrackPage44::OnNavigatedTo(NavigationEventArgs^ e) {
+	//Retrieve value passed in from MainPage, convert to int, and convert to milliseconds
+	String^ tempoS = dynamic_cast<Platform::String^>(e->Parameter);
+	const wchar_t* beginPtr = tempoS->Data();
+	sleepTime = 1000 / (std::wcstol(beginPtr, nullptr, 10) / 60) ;
+	::Windows::UI::Xaml::Controls::Page::OnNavigatedTo(e);
+}
 void SimpG::TrackPage44::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
-	track.clear();
+	clearTrack();
 	this->Frame->Navigate(Windows::UI::Xaml::Interop::TypeName(MainPage::typeid));
 }
 
 bool kick1toggle = true;
 void SimpG::TrackPage44::Kick1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 0);
+	beatTap(0, 0);
 	if (kick1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick1->Fill = whiteBrush;
@@ -63,7 +89,7 @@ void SimpG::TrackPage44::Kick1_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick2toggle = true;
 void SimpG::TrackPage44::Kick2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 1);
+	beatTap(0, 1);
 	if (kick2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick2->Fill = whiteBrush;
@@ -78,7 +104,7 @@ void SimpG::TrackPage44::Kick2_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick3toggle = true;
 void SimpG::TrackPage44::Kick3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 2);
+	beatTap(0, 2);
 	if (kick3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick3->Fill = whiteBrush;
@@ -93,7 +119,7 @@ void SimpG::TrackPage44::Kick3_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick4toggle = true;
 void SimpG::TrackPage44::Kick4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 3);
+	beatTap(0, 3);
 	if (kick4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick4->Fill = whiteBrush;
@@ -108,7 +134,7 @@ void SimpG::TrackPage44::Kick4_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick6toggle = true;
 void SimpG::TrackPage44::Kick6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 4);
+	beatTap(0, 4);
 	if (kick6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick6->Fill = whiteBrush;
@@ -123,7 +149,7 @@ void SimpG::TrackPage44::Kick6_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick7toggle = true;
 void SimpG::TrackPage44::Kick7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 5);
+	beatTap(0, 5);
 	if (kick7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick7->Fill = whiteBrush;
@@ -138,7 +164,7 @@ void SimpG::TrackPage44::Kick7_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick8toggle = true;
 void SimpG::TrackPage44::Kick8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 6);
+	beatTap(0, 6);
 	if (kick8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick8->Fill = whiteBrush;
@@ -153,7 +179,7 @@ void SimpG::TrackPage44::Kick8_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick9toggle = true;
 void SimpG::TrackPage44::Kick9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 7);
+	beatTap(0, 7);
 	if (kick9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick9->Fill = whiteBrush;
@@ -168,7 +194,7 @@ void SimpG::TrackPage44::Kick9_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool kick11toggle = true;
 void SimpG::TrackPage44::Kick11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 8);
+	beatTap(0, 8);
 	if (kick11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick11->Fill = whiteBrush;
@@ -183,7 +209,7 @@ void SimpG::TrackPage44::Kick11_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick12toggle = true;
 void SimpG::TrackPage44::Kick12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 9);
+	beatTap(0, 9);
 	if (kick12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick12->Fill = whiteBrush;
@@ -198,7 +224,7 @@ void SimpG::TrackPage44::Kick12_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick13toggle = true;
 void SimpG::TrackPage44::Kick13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 10);
+	beatTap(0, 10);
 	if (kick13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick13->Fill = whiteBrush;
@@ -213,7 +239,7 @@ void SimpG::TrackPage44::Kick13_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick14toggle = true;
 void SimpG::TrackPage44::Kick14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 11);
+	beatTap(0, 11);
 	if (kick14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick14->Fill = whiteBrush;
@@ -228,7 +254,7 @@ void SimpG::TrackPage44::Kick14_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick16toggle = true;
 void SimpG::TrackPage44::Kick16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 12);
+	beatTap(0, 12);
 	if (kick16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick16->Fill = whiteBrush;
@@ -243,7 +269,7 @@ void SimpG::TrackPage44::Kick16_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick17toggle = true;
 void SimpG::TrackPage44::Kick17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 13);
+	beatTap(0, 13);
 	if (kick17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick17->Fill = whiteBrush;
@@ -258,7 +284,7 @@ void SimpG::TrackPage44::Kick17_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick18toggle = true;
 void SimpG::TrackPage44::Kick18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 14);
+	beatTap(0, 14);
 	if (kick18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick18->Fill = whiteBrush;
@@ -273,7 +299,7 @@ void SimpG::TrackPage44::Kick18_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool kick19toggle = true;
 void SimpG::TrackPage44::Kick19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(0, 15);
+	beatTap(0, 15);
 	if (kick19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Kick19->Fill = whiteBrush;
@@ -288,7 +314,7 @@ void SimpG::TrackPage44::Kick19_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare1toggle = true;
 void SimpG::TrackPage44::Snare1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 0);
+	beatTap(1, 0);
 	if (snare1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare1->Fill = whiteBrush;
@@ -303,7 +329,7 @@ void SimpG::TrackPage44::Snare1_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare2toggle = true;
 void SimpG::TrackPage44::Snare2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 1);
+	beatTap(1, 1);
 	if (snare2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare2->Fill = whiteBrush;
@@ -318,7 +344,7 @@ void SimpG::TrackPage44::Snare2_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare3toggle = true;
 void SimpG::TrackPage44::Snare3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 2);
+	beatTap(1, 2);
 	if (snare3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare3->Fill = whiteBrush;
@@ -333,7 +359,7 @@ void SimpG::TrackPage44::Snare3_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare4toggle = true;
 void SimpG::TrackPage44::Snare4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 3);
+	beatTap(1, 3);
 	if (snare4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare4->Fill = whiteBrush;
@@ -348,7 +374,7 @@ void SimpG::TrackPage44::Snare4_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare6toggle = true;
 void SimpG::TrackPage44::Snare6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 4);
+	beatTap(1, 4);
 	if (snare6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare6->Fill = whiteBrush;
@@ -363,7 +389,7 @@ void SimpG::TrackPage44::Snare6_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare7toggle = true;
 void SimpG::TrackPage44::Snare7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 5);
+	beatTap(1, 5);
 	if (snare7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare7->Fill = whiteBrush;
@@ -378,7 +404,7 @@ void SimpG::TrackPage44::Snare7_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare8toggle = true;
 void SimpG::TrackPage44::Snare8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 6);
+	beatTap(1, 6);
 	if (snare8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare8->Fill = whiteBrush;
@@ -393,7 +419,7 @@ void SimpG::TrackPage44::Snare8_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare9toggle = true;
 void SimpG::TrackPage44::Snare9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 7);
+	beatTap(1, 7);
 	if (snare9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare9->Fill = whiteBrush;
@@ -408,7 +434,7 @@ void SimpG::TrackPage44::Snare9_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool snare11toggle = true;
 void SimpG::TrackPage44::Snare11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 8);
+	beatTap(1, 8);
 	if (snare11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare11->Fill = whiteBrush;
@@ -423,7 +449,7 @@ void SimpG::TrackPage44::Snare11_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare12toggle = true;
 void SimpG::TrackPage44::Snare12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 9);
+	beatTap(1, 9);
 	if (snare12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare12->Fill = whiteBrush;
@@ -438,7 +464,7 @@ void SimpG::TrackPage44::Snare12_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare13toggle = true;
 void SimpG::TrackPage44::Snare13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 10);
+	beatTap(1, 10);
 	if (snare13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare13->Fill = whiteBrush;
@@ -453,7 +479,7 @@ void SimpG::TrackPage44::Snare13_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare14toggle = true;
 void SimpG::TrackPage44::Snare14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 11);
+	beatTap(1, 11);
 	if (snare14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare14->Fill = whiteBrush;
@@ -468,7 +494,7 @@ void SimpG::TrackPage44::Snare14_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare16toggle = true;
 void SimpG::TrackPage44::Snare16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 12);
+	beatTap(1, 12);
 	if (snare16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare16->Fill = whiteBrush;
@@ -483,7 +509,7 @@ void SimpG::TrackPage44::Snare16_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare17toggle = true;
 void SimpG::TrackPage44::Snare17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 13);
+	beatTap(1, 13);
 	if (snare17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare17->Fill = whiteBrush;
@@ -498,7 +524,7 @@ void SimpG::TrackPage44::Snare17_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare18toggle = true;
 void SimpG::TrackPage44::Snare18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 14);
+	beatTap(1, 14);
 	if (snare18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare18->Fill = whiteBrush;
@@ -513,7 +539,7 @@ void SimpG::TrackPage44::Snare18_Tapped(Platform::Object^ sender, Windows::UI::X
 bool snare19toggle = true;
 void SimpG::TrackPage44::Snare19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(1, 15);
+	beatTap(1, 15);
 	if (snare19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Snare19->Fill = whiteBrush;
@@ -528,7 +554,7 @@ void SimpG::TrackPage44::Snare19_Tapped(Platform::Object^ sender, Windows::UI::X
 bool clap1toggle = true;
 void SimpG::TrackPage44::Clap1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 0);
+	beatTap(2, 0);
 	if (clap1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap1->Fill = whiteBrush;
@@ -543,7 +569,7 @@ void SimpG::TrackPage44::Clap1_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap2toggle = true;
 void SimpG::TrackPage44::Clap2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 1);
+	beatTap(2, 1);
 	if (clap2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap2->Fill = whiteBrush;
@@ -558,7 +584,7 @@ void SimpG::TrackPage44::Clap2_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap3toggle = true;
 void SimpG::TrackPage44::Clap3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 2);
+	beatTap(2, 2);
 	if (clap3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap3->Fill = whiteBrush;
@@ -573,7 +599,7 @@ void SimpG::TrackPage44::Clap3_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap4toggle = true;
 void SimpG::TrackPage44::Clap4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 3);
+	beatTap(2, 3);
 	if (clap4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap4->Fill = whiteBrush;
@@ -588,7 +614,7 @@ void SimpG::TrackPage44::Clap4_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap6toggle = true;
 void SimpG::TrackPage44::Clap6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 4);
+	beatTap(2, 4);
 	if (clap6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap6->Fill = whiteBrush;
@@ -603,7 +629,7 @@ void SimpG::TrackPage44::Clap6_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap7toggle = true;
 void SimpG::TrackPage44::Clap7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 5);
+	beatTap(2, 5);
 	if (clap7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap7->Fill = whiteBrush;
@@ -618,7 +644,7 @@ void SimpG::TrackPage44::Clap7_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap8toggle = true;
 void SimpG::TrackPage44::Clap8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 6);
+	beatTap(2, 6);
 	if (clap8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap8->Fill = whiteBrush;
@@ -633,7 +659,7 @@ void SimpG::TrackPage44::Clap8_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap9toggle = true;
 void SimpG::TrackPage44::Clap9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 7);
+	beatTap(2, 7);
 	if (clap9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap9->Fill = whiteBrush;
@@ -648,7 +674,7 @@ void SimpG::TrackPage44::Clap9_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool clap11toggle = true;
 void SimpG::TrackPage44::Clap11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 8);
+	beatTap(2, 8);
 	if (clap11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap11->Fill = whiteBrush;
@@ -663,7 +689,7 @@ void SimpG::TrackPage44::Clap11_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap12toggle = true;
 void SimpG::TrackPage44::Clap12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 9);
+	beatTap(2, 9);
 	if (clap12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap12->Fill = whiteBrush;
@@ -678,7 +704,7 @@ void SimpG::TrackPage44::Clap12_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap13toggle = true;
 void SimpG::TrackPage44::Clap13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 10);
+	beatTap(2, 10);
 	if (clap13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap13->Fill = whiteBrush;
@@ -693,7 +719,7 @@ void SimpG::TrackPage44::Clap13_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap14toggle = true;
 void SimpG::TrackPage44::Clap14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 11);
+	beatTap(2, 11);
 	if (clap14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap14->Fill = whiteBrush;
@@ -708,7 +734,7 @@ void SimpG::TrackPage44::Clap14_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap16toggle = true;
 void SimpG::TrackPage44::Clap16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 12);
+	beatTap(2, 12);
 	if (clap16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap16->Fill = whiteBrush;
@@ -723,7 +749,7 @@ void SimpG::TrackPage44::Clap16_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap17toggle = true;
 void SimpG::TrackPage44::Clap17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 13);
+	beatTap(2, 13);
 	if (clap17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap17->Fill = whiteBrush;
@@ -738,7 +764,7 @@ void SimpG::TrackPage44::Clap17_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap18toggle = true;
 void SimpG::TrackPage44::Clap18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 14);
+	beatTap(2, 14);
 	if (clap18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap18->Fill = whiteBrush;
@@ -753,7 +779,7 @@ void SimpG::TrackPage44::Clap18_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool clap19toggle = true;
 void SimpG::TrackPage44::Clap19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(2, 15);
+	beatTap(2, 15);
 	if (clap19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Clap19->Fill = whiteBrush;
@@ -768,7 +794,7 @@ void SimpG::TrackPage44::Clap19_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat1toggle = true;
 void SimpG::TrackPage44::OHat1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 0);
+	beatTap(3, 0);
 	if (oHat1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat1->Fill = whiteBrush;
@@ -783,7 +809,7 @@ void SimpG::TrackPage44::OHat1_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat2toggle = true;
 void SimpG::TrackPage44::OHat2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 1);
+	beatTap(3, 1);
 	if (oHat2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat2->Fill = whiteBrush;
@@ -798,7 +824,7 @@ void SimpG::TrackPage44::OHat2_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat3toggle = true;
 void SimpG::TrackPage44::OHat3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 2);
+	beatTap(3, 2);
 	if (oHat3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat3->Fill = whiteBrush;
@@ -813,7 +839,7 @@ void SimpG::TrackPage44::OHat3_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat4toggle = true;
 void SimpG::TrackPage44::OHat4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 3);
+	beatTap(3, 3);
 	if (oHat4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat4->Fill = whiteBrush;
@@ -828,7 +854,7 @@ void SimpG::TrackPage44::OHat4_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat6toggle = true;
 void SimpG::TrackPage44::OHat6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 4);
+	beatTap(3, 4);
 	if (oHat6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat6->Fill = whiteBrush;
@@ -843,7 +869,7 @@ void SimpG::TrackPage44::OHat6_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat7toggle = true;
 void SimpG::TrackPage44::OHat7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 5);
+	beatTap(3, 5);
 	if (oHat7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat7->Fill = whiteBrush;
@@ -858,7 +884,7 @@ void SimpG::TrackPage44::OHat7_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat8toggle = true;
 void SimpG::TrackPage44::OHat8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 6);
+	beatTap(3, 6);
 	if (oHat8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat8->Fill = whiteBrush;
@@ -873,7 +899,7 @@ void SimpG::TrackPage44::OHat8_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat9toggle = true;
 void SimpG::TrackPage44::OHat9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 7);
+	beatTap(3, 7);
 	if (oHat9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat9->Fill = whiteBrush;
@@ -888,7 +914,7 @@ void SimpG::TrackPage44::OHat9_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool oHat11toggle = true;
 void SimpG::TrackPage44::OHat11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 8);
+	beatTap(3, 8);
 	if (oHat11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat11->Fill = whiteBrush;
@@ -903,7 +929,7 @@ void SimpG::TrackPage44::OHat11_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat12toggle = true;
 void SimpG::TrackPage44::OHat12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 9);
+	beatTap(3, 9);
 	if (oHat12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat12->Fill = whiteBrush;
@@ -918,7 +944,7 @@ void SimpG::TrackPage44::OHat12_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat13toggle = true;
 void SimpG::TrackPage44::OHat13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 10);
+	beatTap(3, 10);
 	if (oHat13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat13->Fill = whiteBrush;
@@ -933,7 +959,7 @@ void SimpG::TrackPage44::OHat13_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat14toggle = true;
 void SimpG::TrackPage44::OHat14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 11);
+	beatTap(3, 11);
 	if (oHat14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat14->Fill = whiteBrush;
@@ -948,7 +974,7 @@ void SimpG::TrackPage44::OHat14_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat16toggle = true;
 void SimpG::TrackPage44::OHat16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 12);
+	beatTap(3, 12);
 	if (oHat16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat16->Fill = whiteBrush;
@@ -963,7 +989,7 @@ void SimpG::TrackPage44::OHat16_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat17toggle = true;
 void SimpG::TrackPage44::OHat17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 13);
+	beatTap(3, 13);
 	if (oHat17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat17->Fill = whiteBrush;
@@ -978,7 +1004,7 @@ void SimpG::TrackPage44::OHat17_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat18toggle = true;
 void SimpG::TrackPage44::OHat18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 14);
+	beatTap(3, 14);
 	if (oHat18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat18->Fill = whiteBrush;
@@ -993,7 +1019,7 @@ void SimpG::TrackPage44::OHat18_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool oHat19toggle = true;
 void SimpG::TrackPage44::OHat19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(3, 15);
+	beatTap(3, 15);
 	if (oHat19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		OHat19->Fill = whiteBrush;
@@ -1008,7 +1034,7 @@ void SimpG::TrackPage44::OHat19_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat1toggle = true;
 void SimpG::TrackPage44::CHat1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 0);
+	beatTap(4, 0);
 	if (cHat1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat1->Fill = whiteBrush;
@@ -1023,7 +1049,7 @@ void SimpG::TrackPage44::CHat1_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat2toggle = true;
 void SimpG::TrackPage44::CHat2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 1);
+	beatTap(4, 1);
 	if (cHat2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat2->Fill = whiteBrush;
@@ -1038,7 +1064,7 @@ void SimpG::TrackPage44::CHat2_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat3toggle = true;
 void SimpG::TrackPage44::CHat3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 2);
+	beatTap(4, 2);
 	if (cHat3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat3->Fill = whiteBrush;
@@ -1053,7 +1079,7 @@ void SimpG::TrackPage44::CHat3_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat4toggle = true;
 void SimpG::TrackPage44::CHat4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 3);
+	beatTap(4, 3);
 	if (cHat4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat4->Fill = whiteBrush;
@@ -1068,7 +1094,7 @@ void SimpG::TrackPage44::CHat4_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat6toggle = true;
 void SimpG::TrackPage44::CHat6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 4);
+	beatTap(4, 4);
 	if (cHat6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat6->Fill = whiteBrush;
@@ -1083,7 +1109,7 @@ void SimpG::TrackPage44::CHat6_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat7toggle = true;
 void SimpG::TrackPage44::CHat7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 5);
+	beatTap(4, 5);
 	if (cHat7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat7->Fill = whiteBrush;
@@ -1098,7 +1124,7 @@ void SimpG::TrackPage44::CHat7_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat8toggle = true;
 void SimpG::TrackPage44::CHat8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 6);
+	beatTap(4, 6);
 	if (cHat8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat8->Fill = whiteBrush;
@@ -1113,7 +1139,7 @@ void SimpG::TrackPage44::CHat8_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat9toggle = true;
 void SimpG::TrackPage44::CHat9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 7);
+	beatTap(4, 7);
 	if (cHat9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat9->Fill = whiteBrush;
@@ -1128,7 +1154,7 @@ void SimpG::TrackPage44::CHat9_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool cHat11toggle = true;
 void SimpG::TrackPage44::CHat11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 8);
+	beatTap(4, 8);
 	if (cHat11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat11->Fill = whiteBrush;
@@ -1143,7 +1169,7 @@ void SimpG::TrackPage44::CHat11_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat12toggle = true;
 void SimpG::TrackPage44::CHat12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 9);
+	beatTap(4, 9);
 	if (cHat12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat12->Fill = whiteBrush;
@@ -1158,7 +1184,7 @@ void SimpG::TrackPage44::CHat12_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat13toggle = true;
 void SimpG::TrackPage44::CHat13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 10);
+	beatTap(4, 10);
 	if (cHat13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat13->Fill = whiteBrush;
@@ -1173,7 +1199,7 @@ void SimpG::TrackPage44::CHat13_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat14toggle = true;
 void SimpG::TrackPage44::CHat14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 11);
+	beatTap(4, 11);
 	if (cHat14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat14->Fill = whiteBrush;
@@ -1188,7 +1214,7 @@ void SimpG::TrackPage44::CHat14_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat16toggle = true;
 void SimpG::TrackPage44::CHat16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 12);
+	beatTap(4, 12);
 	if (cHat16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat16->Fill = whiteBrush;
@@ -1203,7 +1229,7 @@ void SimpG::TrackPage44::CHat16_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat17toggle = true;
 void SimpG::TrackPage44::CHat17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 13);
+	beatTap(4, 13);
 	if (cHat17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat17->Fill = whiteBrush;
@@ -1218,7 +1244,7 @@ void SimpG::TrackPage44::CHat17_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat18toggle = true;
 void SimpG::TrackPage44::CHat18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 14);
+	beatTap(4, 14);
 	if (cHat18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat18->Fill = whiteBrush;
@@ -1233,7 +1259,7 @@ void SimpG::TrackPage44::CHat18_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool cHat19toggle = true;
 void SimpG::TrackPage44::CHat19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(4, 15);
+	beatTap(4, 15);
 	if (cHat19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		CHat19->Fill = whiteBrush;
@@ -1248,7 +1274,7 @@ void SimpG::TrackPage44::CHat19_Tapped(Platform::Object^ sender, Windows::UI::Xa
 bool tom1toggle = true;
 void SimpG::TrackPage44::Tom1_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 0);
+	beatTap(5, 0);
 	if (tom1toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom1->Fill = whiteBrush;
@@ -1263,7 +1289,7 @@ void SimpG::TrackPage44::Tom1_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom2toggle = true;
 void SimpG::TrackPage44::Tom2_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 1);
+	beatTap(5, 1);
 	if (tom2toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom2->Fill = whiteBrush;
@@ -1278,7 +1304,7 @@ void SimpG::TrackPage44::Tom2_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom3toggle = true;
 void SimpG::TrackPage44::Tom3_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 2);
+	beatTap(5, 2);
 	if (tom3toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom3->Fill = whiteBrush;
@@ -1293,7 +1319,7 @@ void SimpG::TrackPage44::Tom3_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom4toggle = true;
 void SimpG::TrackPage44::Tom4_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 3);
+	beatTap(5, 3);
 	if (tom4toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom4->Fill = whiteBrush;
@@ -1308,7 +1334,7 @@ void SimpG::TrackPage44::Tom4_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom6toggle = true;
 void SimpG::TrackPage44::Tom6_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 4);
+	beatTap(5, 4);
 	if (tom6toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom6->Fill = whiteBrush;
@@ -1323,7 +1349,7 @@ void SimpG::TrackPage44::Tom6_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom7toggle = true;
 void SimpG::TrackPage44::Tom7_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 5);
+	beatTap(5, 5);
 	if (tom7toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom7->Fill = whiteBrush;
@@ -1338,7 +1364,7 @@ void SimpG::TrackPage44::Tom7_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom8toggle = true;
 void SimpG::TrackPage44::Tom8_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 6);
+	beatTap(5, 6);
 	if (tom8toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom8->Fill = whiteBrush;
@@ -1353,7 +1379,7 @@ void SimpG::TrackPage44::Tom8_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom9toggle = true;
 void SimpG::TrackPage44::Tom9_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 7);
+	beatTap(5, 7);
 	if (tom9toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom9->Fill = whiteBrush;
@@ -1368,7 +1394,7 @@ void SimpG::TrackPage44::Tom9_Tapped(Platform::Object^ sender, Windows::UI::Xaml
 bool tom11toggle = true;
 void SimpG::TrackPage44::Tom11_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 8);
+	beatTap(5, 8);
 	if (tom11toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom11->Fill = whiteBrush;
@@ -1383,7 +1409,7 @@ void SimpG::TrackPage44::Tom11_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom12toggle = true;
 void SimpG::TrackPage44::Tom12_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 9);
+	beatTap(5, 9);
 	if (tom12toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom12->Fill = whiteBrush;
@@ -1398,7 +1424,7 @@ void SimpG::TrackPage44::Tom12_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom13toggle = true;
 void SimpG::TrackPage44::Tom13_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 10);
+	beatTap(5, 10);
 	if (tom13toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom13->Fill = whiteBrush;
@@ -1413,7 +1439,7 @@ void SimpG::TrackPage44::Tom13_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom14toggle = true;
 void SimpG::TrackPage44::Tom14_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 11);
+	beatTap(5, 11);
 	if (tom14toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom14->Fill = whiteBrush;
@@ -1428,7 +1454,7 @@ void SimpG::TrackPage44::Tom14_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom16toggle = true;
 void SimpG::TrackPage44::Tom16_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 12);
+	beatTap(5, 12);
 	if (tom16toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom16->Fill = whiteBrush;
@@ -1443,7 +1469,7 @@ void SimpG::TrackPage44::Tom16_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom17toggle = true;
 void SimpG::TrackPage44::Tom17_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 13);
+	beatTap(5, 13);
 	if (tom17toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom17->Fill = whiteBrush;
@@ -1458,7 +1484,7 @@ void SimpG::TrackPage44::Tom17_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom18toggle = true;
 void SimpG::TrackPage44::Tom18_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 14);
+	beatTap(5, 14);
 	if (tom18toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom18->Fill = whiteBrush;
@@ -1473,7 +1499,7 @@ void SimpG::TrackPage44::Tom18_Tapped(Platform::Object^ sender, Windows::UI::Xam
 bool tom19toggle = true;
 void SimpG::TrackPage44::Tom19_Tapped(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e)
 {
-	track.beatTap(5, 15);
+	beatTap(5, 15);
 	if (tom19toggle) {
 		auto whiteBrush = ref new SolidColorBrush(Windows::UI::Colors::White);
 		Tom19->Fill = whiteBrush;
@@ -1488,70 +1514,317 @@ void SimpG::TrackPage44::Tom19_Tapped(Platform::Object^ sender, Windows::UI::Xam
 cancellation_token_source cancelToken;
 IAsyncActionWithProgress<int>^ SimpG::TrackPage44::play(int startColumn) {
 	auto token = cancelToken.get_token();
-	Sound player = new Sound(1); //PLAYER SHOULD BE INITIALIZED WHENEVER THE GENRE IS SELECTED
+	//Sound player = new Sound(1); //PLAYER SHOULD BE INITIALIZED WHENEVER THE GENRE IS SELECTED
 	return create_async([this, startColumn, token](progress_reporter<int> reporter)
 	{	
 		int startIndex = startColumn; // trackGrid->GetColumn(playhead);
-		int counter = startColumn - (startColumn/4 + 1)
+		int counter = startColumn - (startColumn / 4 + 1);
 		for (int i = 0; i < 160; i++) {
-			try {
-				reporter.report(startIndex);
-				startIndex++;
-				//Loop back to beginning
-				if (startIndex == 20) {
-					startIndex = 0;
-				}
-				//Skip empty columns
-				if (startIndex % 5 == 0) {
-					startIndex++;
-				}
-				//Sleep time dependent on tempo
-				Sleep(1000);
-				player.play(track.beatList[counter]);
-					//fix parameters for sound
-			} catch (task_canceled e) {
-				reporter.report(21);
-				cancel_current_task();
+
+			reporter.report(startIndex);
+			startIndex++;
+			//Loop back to beginning
+			if (startIndex == 20) {
+				startIndex = 0;
 			}
-			//Check on each iteration if cancellation token has been activated
+			//Skip empty columns
+			if (startIndex % 5 == 0) {
+				startIndex++;
+			}
+			//Sleep time dependent on tempo
+			Sleep(sleepTime);
+			//player.play(track.beatList[counter]);
+				//fix parameters for sound
+
+
 			if (counter < 16) { counter++; }
 			else { counter = 0; }
 		}
 	});
 }
+
+//IAsyncActionWithProgress<int>^ loop;
 void SimpG::TrackPage44::loopThreadHandler() {
 
 	cancellation_token_source pauseLoop;
-	cancelToken = pauseLoop;
 	auto token = pauseLoop.get_token();
 	//Finds the current location of the playhead, and pass it into async lambda
 	int currentColumn = trackGrid->GetColumn(playhead);
 	//Create function to loop through GUI
-	auto loop = play(currentColumn);
+	auto loop = create_async([this, currentColumn, token](progress_reporter<int> reporter)
+	{
+		int startIndex = currentColumn;
+		int counter = currentColumn - (currentColumn / 5 + 1);
+		for (int i = 0; i < 160; i++) {
+			if (playing) {
+				reporter.report(startIndex);
+			}
+			startIndex++;
+			//Loop back to beginning
+			if (startIndex == 20) {
+				startIndex = 0;
+			}
+			//Skip empty columns
+			if (startIndex % 5 == 0) {
+				startIndex++;
+			}
+			//Sleep time dependent on tempo
+
+			Sleep(sleepTime);
+			
+			
+			if (counter < 16) { counter++; }
+			else { counter = 0; }
+			if (!playing) {
+				cancel_current_task();
+			}
+		}
+	});
 	//Track the progress and pass ito to updateProgress()
+	cancelToken = pauseLoop;
 	loop->Progress = ref new AsyncActionProgressHandler<int>(this, &TrackPage44::updateProgress);
 	//Pass looping function into asynchronous operation
 	auto loopThread = create_task(loop, token);
-	loopThread.then([this]() {
-		Sleep(10);
+	loopThread.then([](task<void> result) {
+		
 	});
 }
+void SimpG::TrackPage44::playSound(std::vector<bool> bitArray) {
+}
 void SimpG::TrackPage44::updateProgress(IAsyncActionWithProgress<int>^ action, int progress) {
+	//Run the progress counter through playsound
+	int counter = progress - (progress / 5 + 1);
+	//playSound(track.beatList[counter]);
+
+	//Initialization of playQueue depends on the genre
+	String^ playQueue = L"1";
+	String^ inc1 = L"1";
+	String^ inc0 = L"0";
+	//Create appropriate sound file Platform::String
+	for (int i = 5; i >= 0; i--) {
+		if (beatList[counter][i]) { playQueue = String::Concat(playQueue, inc1); }
+		else { playQueue = String::Concat(playQueue, inc0); }
+	}
+	//Plays sounds depending on the beat array
+	if (playQueue->Equals(L"1000000")) {
+		_1000000->Play();
+	}
+	if (playQueue->Equals(L"1000001")) {
+		_1000001->Play();
+	}
+	if (playQueue->Equals(L"1000010")) {
+		_1000010->Play();
+	}
+	if (playQueue->Equals(L"1000011")) {
+		_1000011->Play();
+	}
+	if (playQueue->Equals(L"1000100")) {
+		_1000100->Play();
+	}
+	if (playQueue->Equals(L"1000101")) {
+		_1000101->Play();
+	}
+	if (playQueue->Equals(L"1000110")) {
+		_1000110->Play();
+	}
+	if (playQueue->Equals(L"1000111")) {
+		_1000111->Play();
+	}
+	if (playQueue->Equals(L"1001000")) {
+		_1001000->Play();
+	}
+	if (playQueue->Equals(L"1001001")) {
+		_1001001->Play();
+	}
+	if (playQueue->Equals(L"1001010")) {
+		_1001010->Play();
+	}
+	if (playQueue->Equals(L"1001011")) {
+		_1001011->Play();
+	}
+	if (playQueue->Equals(L"1001100")) {
+		_1001100->Play();
+	}
+	if (playQueue->Equals(L"1001101")) {
+		_1001101->Play();
+	}
+	if (playQueue->Equals(L"1001110")) {
+		_1001110->Play();
+	}
+	if (playQueue->Equals(L"1001111")) {
+		_1001111->Play();
+	}
+	if (playQueue->Equals(L"1010000")) {
+		_1010000->Play();
+	}
+	if (playQueue->Equals(L"1010001")) {
+		_1010001->Play();
+	}
+	if (playQueue->Equals(L"1010010")) {
+		_1010010->Play();
+	}
+	if (playQueue->Equals(L"1010011")) {
+		_1010011->Play();
+	}
+	if (playQueue->Equals(L"1010100")) {
+		_1010100->Play();
+	}
+	if (playQueue->Equals(L"1010101")) {
+		_1010101->Play();
+	}
+	if (playQueue->Equals(L"1010110")) {
+		_1010110->Play();
+	}
+	if (playQueue->Equals(L"1010111")) {
+		_1010111->Play();
+	}
+	if (playQueue->Equals(L"1011000")) {
+		_1011000->Play();
+	}
+	if (playQueue->Equals(L"1011001")) {
+		_1011001->Play();
+	}
+	if (playQueue->Equals(L"1011010")) {
+		_1011010->Play();
+	}
+	if (playQueue->Equals(L"1011011")) {
+		_1011011->Play();
+	}
+	if (playQueue->Equals(L"1011100")) {
+		_1011100->Play();
+	}
+	if (playQueue->Equals(L"1011101")) {
+		_1011101->Play();
+	}
+	if (playQueue->Equals(L"1011110")) {
+		_1011110->Play();
+	}
+	if (playQueue->Equals(L"1011111")) {
+		_1011111->Play();
+	}
+	if (playQueue->Equals(L"1100000")) {
+		_1100000->Play();
+	}
+	if (playQueue->Equals(L"1100001")) {
+		_1100001->Play();
+	}
+	if (playQueue->Equals(L"1100010")) {
+		_1100010->Play();
+	}
+	if (playQueue->Equals(L"1100011")) {
+		_1100011->Play();
+	}
+	if (playQueue->Equals(L"1100100")) {
+		_1100100->Play();
+	}
+	if (playQueue->Equals(L"1100101")) {
+		_1100101->Play();
+	}
+	if (playQueue->Equals(L"1100110")) {
+		_1100110->Play();
+	}
+	if (playQueue->Equals(L"1100111")) {
+		_1100111->Play();
+	}
+	if (playQueue->Equals(L"1101000")) {
+		_1101000->Play();
+	}
+	if (playQueue->Equals(L"1101001")) {
+		_1101001->Play();
+	}
+	if (playQueue->Equals(L"1101010")) {
+		_1101010->Play();
+	}
+	if (playQueue->Equals(L"1101011")) {
+		_1101011->Play();
+	}
+	if (playQueue->Equals(L"1101100")) {
+		_1101100->Play();
+	}
+	if (playQueue->Equals(L"1101101")) {
+		_1101101->Play();
+	}
+	if (playQueue->Equals(L"1101110")) {
+		_1101110->Play();
+	}
+	if (playQueue->Equals(L"1101111")) {
+		_1101111->Play();
+	}
+	if (playQueue->Equals(L"1110000")) {
+		_1110000->Play();
+	}
+	if (playQueue->Equals(L"1110001")) {
+		_1110001->Play();
+	}
+	if (playQueue->Equals(L"1110010")) {
+		_1110010->Play();
+	}
+	if (playQueue->Equals(L"1110011")) {
+		_1110011->Play();
+	}
+	if (playQueue->Equals(L"1110100")) {
+		_1110100->Play();
+	}
+	if (playQueue->Equals(L"1110101")) {
+		_1110101->Play();
+	}
+	if (playQueue->Equals(L"1110110")) {
+		_1110110->Play();
+	}
+	if (playQueue->Equals(L"1110111")) {
+		_1110111->Play();
+	}
+	if (playQueue->Equals(L"1111000")) {
+		_1111000->Play();
+	}
+	if (playQueue->Equals(L"1111001")) {
+		_1111001->Play();
+	}
+	if (playQueue->Equals(L"1111010")) {
+		_1111010->Play();
+	}
+	if (playQueue->Equals(L"1111011")) {
+		_1111011->Play();
+	}
+	if (playQueue->Equals(L"1111100")) {
+		_1111100->Play();
+	}
+	if (playQueue->Equals(L"1111101")) {
+		_1111101->Play();
+	}
+	if (playQueue->Equals(L"1111110")) {
+		_1111110->Play();
+	}
+	if (playQueue->Equals(L"1111111")) {
+		_1111111->Play();
+	}
 	//Update the GUI thread with progress values from async thread
 	trackGrid->SetColumn(playhead, progress);
+	
 }
 void SimpG::TrackPage44::Button_Click_1(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	//Play
 	loopThreadHandler();
+	playing = true;
 	//Await end
 }
 
+void SimpG::TrackPage44::clearTrack() {
+	for (int i = 0; i < 16; i++) {
+		for (int j = 0; j < 6; j++) {
+			beatList[i][j] = false;
+		}
+	}
+}
 
+void SimpG::TrackPage44::beatTap(int instrument, int location) {
+	beatList[location][instrument] = !beatList[location][instrument];
+}
 void SimpG::TrackPage44::clear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	//clears track
-	track.clear();
+	clearTrack();
 	//pause
 	playing = false;
 	//resets all the colors
@@ -1664,5 +1937,186 @@ void SimpG::TrackPage44::clear_Click(Platform::Object^ sender, Windows::UI::Xaml
 void SimpG::TrackPage44::Pause_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	//Create cancellation token
-	cancelToken.cancel();
+	playing = false;
+	//player->Source = player->Source;
+	//playSound();
+}
+//Methods for sampling sound
+void SimpG::TrackPage44::sampleKick(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1000001->Play();
+}
+void SimpG::TrackPage44::sampleSnare(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1000010->Play();
+}
+void SimpG::TrackPage44::sampleOhat(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1000100->Play();
+}
+void SimpG::TrackPage44::sampleTom(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1001000->Play();
+}
+void SimpG::TrackPage44::sampleChat(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1010000->Play();
+}
+void SimpG::TrackPage44::sampleClap (Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	_1100000->Play();
+}
+void SimpG::TrackPage44::loc1tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 1);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc2tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 2);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc3tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 3);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc4tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 4);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc6tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 6);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc7tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 7);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc8tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 8);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc9tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 9);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc11tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 11);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc12tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 12);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc13tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 13);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc14tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 14);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc16tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 16);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc17tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 17);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc18tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 18);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
+}
+void SimpG::TrackPage44::loc19tap(Platform::Object^ sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs^ e) {
+	trackGrid->SetColumn(playhead, 19);
+	if (playing) {
+		playing = false;
+		//Must sleep for tempo time
+		Sleep(sleepTime);
+		loopThreadHandler();
+		playing = true;
+	}
 }

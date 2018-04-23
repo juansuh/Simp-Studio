@@ -1,0 +1,377 @@
+﻿<Page
+    x:Class="SimpG.TrackPage68"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SimpG"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" MinHeight = "220" MaxHeight="220" MinWidth = "340" MaxWidth="340" Height="220" Width="340">
+
+    <Grid x:ConnectionId='1' x:Name="trackGrid" RequestedTheme="Light" Background="#263238" Margin="0,1,0,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="27" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border x:ConnectionId='2' x:Name="KG1" Grid.Column="1" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='162' x:Name="Kick1"                       HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F" Height="16"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='161' x:Name="Kick2"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='160' x:Name="Kick3"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='159' x:Name="Kick4"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='158' x:Name="Kick6"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='157' x:Name="Kick7"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='156' x:Name="Kick8"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='155' x:Name="Kick9"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='154' x:Name="Kick11"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='153' x:Name="Kick12"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='152' x:Name="Kick13"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='151' x:Name="Kick14"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='150' x:Name="Snare1"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090 "/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='149' x:Name="Snare2"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='148' x:Name="Snare3"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='147' x:Name="Snare4"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='146' x:Name="Snare6"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='145' x:Name="Snare7"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='144' x:Name="Snare8"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='143' x:Name="Snare9"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='142' x:Name="Snare11"                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='141' x:Name="Snare12"                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='140' x:Name="Snare13"                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='139' x:Name="Snare14"                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+
+        <Border Grid.Column="1" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='138' x:Name="Clap1"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='137' x:Name="Clap2"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='136' x:Name="Clap3"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='135' x:Name="Clap4"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='134' x:Name="Clap6"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='133' x:Name="Clap7"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='132' x:Name="Clap8"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='131' x:Name="Clap9"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='130' x:Name="Clap11"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='129' x:Name="Clap12"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='128' x:Name="Clap13"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='127' x:Name="Clap14"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='126' x:Name="OHat1"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='125' x:Name="OHat2"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='124' x:Name="OHat3"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='123' x:Name="OHat4"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='122' x:Name="OHat6"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='121' x:Name="OHat7"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='120' x:Name="OHat8"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='119' x:Name="OHat9"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='118' x:Name="OHat11"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='117' x:Name="OHat12"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='116' x:Name="OHat13"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='115' x:Name="OHat14"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='114' x:Name="CHat1"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='113' x:Name="CHat2"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='112' x:Name="CHat3"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='111' x:Name="CHat4"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='110' x:Name="CHat6"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='109' x:Name="CHat7"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='108' x:Name="CHat8"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='107' x:Name="CHat9"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='106' x:Name="CHat11"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='105' x:Name="CHat12"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='104' x:Name="CHat13"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='103' x:Name="CHat14"                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='102' x:Name="Tom1"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='101' x:Name="Tom2"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='100' x:Name="Tom3"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='99' x:Name="Tom4"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="7" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='98' x:Name="Tom6"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='97' x:Name="Tom7"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='96' x:Name="Tom8"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="11" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='95' x:Name="Tom9"                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Border Grid.Column="13" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='94' x:Name="Tom11"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="14" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='93' x:Name="Tom12"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="16" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='92' x:Name="Tom13"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+        <Border Grid.Column="17" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
+            <Rectangle x:ConnectionId='91' x:Name="Tom14"                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
+        </Border>
+
+        <Button x:ConnectionId='3' x:Name="playpause" Foreground="White" Content="Play" Grid.Column ="1" Grid.Row="13" Grid.ColumnSpan="6" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top"                        RequestedTheme="Default" />
+        <Button x:ConnectionId='4' x:Name="clear" Foreground="White" Content="Clear" Grid.Column ="10" Grid.Row="13" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,0,0,0"                    />
+        <Button x:ConnectionId='5' x:Name="New" Foreground="White" Content="New" Grid.Column ="14" Grid.Row="13" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top"                     />
+        <Rectangle x:ConnectionId='6' x:Name="playhead" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Fill="White" VerticalAlignment="Bottom"/>
+        <Button x:ConnectionId='7' x:Name="Pause" Foreground="White" Content="Pause" Grid.Column="5" Grid.Row="13" HorizontalAlignment="Left"  Grid.ColumnSpan="4" VerticalAlignment="Top"                    />
+        <ProgressBar x:ConnectionId='8' x:Name="playheadBar" Grid.Column="1" Grid.ColumnSpan="17" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Grid.RowSpan="1" VerticalAlignment="Bottom"/>
+
+        <Rectangle x:ConnectionId='9' x:Name="loc1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='10' x:Name="loc2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='11' x:Name="loc3" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='12' x:Name="loc4" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='13' x:Name="loc6" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='14' x:Name="loc7" Grid.Row="0" Grid.Column="8" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='15' x:Name="loc8" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='16' x:Name="loc9" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                 />
+        <Rectangle x:ConnectionId='17' x:Name="loc11" Grid.Row="0" Grid.Column="13" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                  />
+        <Rectangle x:ConnectionId='18' x:Name="loc12" Grid.Row="0" Grid.Column="14" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                  />
+        <Rectangle x:ConnectionId='19' x:Name="loc13" Grid.Row="0" Grid.Column="16" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                  />
+        <Rectangle x:ConnectionId='20' x:Name="loc14" Grid.Row="0" Grid.Column="17" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom"                  />
+
+        <MediaElement x:ConnectionId='21' x:Name="_1000000" Source="sounds\1000000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='22' x:Name="_1000001" Source="sounds\1000001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='23' x:Name="_1000010" Source="sounds\1000010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='24' x:Name="_1000011" Source="sounds\1000011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='25' x:Name="_1000100" Source="sounds\1000100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='26' x:Name="_1000101" Source="sounds\1000101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='27' x:Name="_1000110" Source="sounds\1000110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='28' x:Name="_1000111" Source="sounds\1000111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='29' x:Name="_1001000" Source="sounds\1001000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='30' x:Name="_1001001" Source="sounds\1001001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='31' x:Name="_1001010" Source="sounds\1001010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='32' x:Name="_1001011" Source="sounds\1001011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='33' x:Name="_1001100" Source="sounds\1001100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='34' x:Name="_1001101" Source="sounds\1001101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='35' x:Name="_1001110" Source="sounds\1001110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='36' x:Name="_1001111" Source="sounds\1001111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='37' x:Name="_1010000" Source="sounds\1010000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='38' x:Name="_1010001" Source="sounds\1010001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='39' x:Name="_1010010" Source="sounds\1010010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='40' x:Name="_1010011" Source="sounds\1010011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='41' x:Name="_1010100" Source="sounds\1010100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='42' x:Name="_1010101" Source="sounds\1010101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='43' x:Name="_1010110" Source="sounds\1010110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='44' x:Name="_1010111" Source="sounds\1010111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='45' x:Name="_1011000" Source="sounds\1011000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='46' x:Name="_1011001" Source="sounds\1011001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='47' x:Name="_1011010" Source="sounds\1011010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='48' x:Name="_1011011" Source="sounds\1011011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='49' x:Name="_1011100" Source="sounds\1011100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='50' x:Name="_1011101" Source="sounds\1011101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='51' x:Name="_1011110" Source="sounds\1011110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='52' x:Name="_1011111" Source="sounds\1011111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='53' x:Name="_1100000" Source="sounds\1100000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='54' x:Name="_1100001" Source="sounds\1100001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='55' x:Name="_1100010" Source="sounds\1100010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='56' x:Name="_1100011" Source="sounds\1100011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='57' x:Name="_1100100" Source="sounds\1100100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='58' x:Name="_1100101" Source="sounds\1100101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='59' x:Name="_1100110" Source="sounds\1100110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='60' x:Name="_1100111" Source="sounds\1100111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='61' x:Name="_1101000" Source="sounds\1101000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='62' x:Name="_1101001" Source="sounds\1101001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='63' x:Name="_1101010" Source="sounds\1101010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='64' x:Name="_1101011" Source="sounds\1101011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='65' x:Name="_1101100" Source="sounds\1101100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='66' x:Name="_1101101" Source="sounds\1101101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='67' x:Name="_1101110" Source="sounds\1101110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='68' x:Name="_1101111" Source="sounds\1101111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='69' x:Name="_1110000" Source="sounds\1110000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='70' x:Name="_1110001" Source="sounds\1110001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='71' x:Name="_1110010" Source="sounds\1110010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='72' x:Name="_1110011" Source="sounds\1110011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='73' x:Name="_1110100" Source="sounds\1110100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='74' x:Name="_1110101" Source="sounds\1110101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='75' x:Name="_1110110" Source="sounds\1110110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='76' x:Name="_1110111" Source="sounds\1110111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='77' x:Name="_1111000" Source="sounds\1111000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='78' x:Name="_1111001" Source="sounds\1111001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='79' x:Name="_1111010" Source="sounds\1111010.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='80' x:Name="_1111011" Source="sounds\1111011.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='81' x:Name="_1111100" Source="sounds\1111100.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='82' x:Name="_1111101" Source="sounds\1111101.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='83' x:Name="_1111110" Source="sounds\1111110.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <MediaElement x:ConnectionId='84' x:Name="_1111111" Source="sounds\1111111.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
+        <Image x:ConnectionId='85' x:Name="kickicon"                     Source="Assets/instrument-icons/kick.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+        <Image x:ConnectionId='86' x:Name="snareicon"                      Source="Assets/instrument-icons/snare.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+        <Image x:ConnectionId='87' x:Name="ohaticon"                     Source="Assets/instrument-icons/ohat.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+        <Image x:ConnectionId='88' x:Name="clapicon"                      Source="Assets/instrument-icons/clap.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+        <Image x:ConnectionId='89' x:Name="chaticon"                     Source="Assets/instrument-icons/chat.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+        <Image x:ConnectionId='90' x:Name="tomicon"                    Source="Assets/instrument-icons/tom.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
+
+
+    </Grid>
+</Page>
+

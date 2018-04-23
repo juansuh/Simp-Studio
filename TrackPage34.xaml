@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="SimpG.TrackPage44"
+    x:Class="SimpG.TrackPage34"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SimpG"
@@ -7,15 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" MinHeight = "220" MaxHeight="220" MinWidth = "340" MaxWidth="340" Height="220" Width="340">
 
-
     <Grid x:Name="trackGrid" RequestedTheme="Light" Background="#263238" Margin="0,1,0,-1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="27" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -87,19 +81,6 @@
             <Rectangle x:Name="Kick14" Tapped="Kick14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
         </Border>
 
-        <Border Grid.Column="16" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Kick16" Tapped="Kick16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Kick17" Tapped="Kick17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Kick18" Tapped="Kick18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="19" Grid.Row="1" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Kick19" Tapped="Kick19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-
         <Border Grid.Column="1" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="Snare1" Tapped="Snare1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090 "/>
         </Border>
@@ -139,18 +120,6 @@
             <Rectangle x:Name="Snare14" Tapped="Snare14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
         </Border>
 
-        <Border Grid.Column="16" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Snare16" Tapped="Snare16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Snare17" Tapped="Snare17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Snare18" Tapped="Snare18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="19" Grid.Row="3" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Snare19" Tapped="Snare19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
 
         <Border Grid.Column="1" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="Clap1" Tapped="Clap1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
@@ -189,19 +158,6 @@
         </Border>
         <Border Grid.Column="14" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="Clap14" Tapped="Clap14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-
-        <Border Grid.Column="16" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Clap16" Tapped="Clap16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Clap17" Tapped="Clap17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Clap18" Tapped="Clap18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="19" Grid.Row="5" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Clap19" Tapped="Clap19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
         </Border>
 
         <Border Grid.Column="1" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
@@ -243,20 +199,6 @@
             <Rectangle x:Name="OHat14" Tapped="OHat14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
         </Border>
 
-        <Border Grid.Column="16" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="OHat16" Tapped="OHat16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="OHat17" Tapped="OHat17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="OHat18" Tapped="OHat18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-
-        <Border Grid.Column="19" Grid.Row="7" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="OHat19" Tapped="OHat19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-
         <Border Grid.Column="1" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="CHat1" Tapped="CHat1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
         </Border>
@@ -295,20 +237,6 @@
         <Border Grid.Column="14" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="CHat14" Tapped="CHat14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
         </Border>
-
-        <Border Grid.Column="16" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="CHat16" Tapped="CHat16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="CHat17" Tapped="CHat17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="CHat18" Tapped="CHat18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-        <Border Grid.Column="19" Grid.Row="9" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="CHat19" Tapped="CHat19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#2F4F4F"/>
-        </Border>
-
 
         <Border Grid.Column="1" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
             <Rectangle x:Name="Tom1" Tapped="Tom1_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
@@ -349,27 +277,13 @@
             <Rectangle x:Name="Tom14" Tapped="Tom14_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
         </Border>
 
-        <Border Grid.Column="16" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Tom16" Tapped="Tom16_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="17" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Tom17" Tapped="Tom17_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-        <Border Grid.Column="18" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Tom18" Tapped="Tom18_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-
-        <Border Grid.Column="19" Grid.Row="11" BorderThickness="1" BorderBrush="#000">
-            <Rectangle x:Name="Tom19" Tapped="Tom19_Tapped" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Fill="#708090"/>
-        </Border>
-
         <Button x:Name="playpause" Foreground="White" Content="Play" Grid.Column ="1" Grid.Row="13" Grid.ColumnSpan="6" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Click="Button_Click_1" RequestedTheme="Default" />
-        <Button x:Name="clear" Foreground="White" Content="Clear" Grid.Column ="12" Grid.Row="13" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,0,0,0" Click="clear_Click"/>
-        <Button x:Name="New" Foreground="White" Content="New" Grid.Column ="16" Grid.Row="13" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button x:Name="clear" Foreground="White" Content="Clear" Grid.Column ="8" Grid.Row="13" Grid.ColumnSpan="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,0,0,0" Click="clear_Click"/>
+        <Button x:Name="New" Foreground="White" Content="New" Grid.Column ="12" Grid.Row="13" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="12,0,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Rectangle x:Name="playhead" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Fill="White" VerticalAlignment="Bottom"/>
-        <Button x:Name="Pause" Foreground="White" Content="Pause" Grid.Column="5" Grid.Row="13" HorizontalAlignment="Left"  Grid.ColumnSpan="4" VerticalAlignment="Top" Click="Pause_Click"/>
-        <ProgressBar x:Name="playheadBar" Grid.Column="1" Grid.ColumnSpan="19" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Grid.RowSpan="1" VerticalAlignment="Bottom"/>
-        
+        <Button x:Name="Pause" Foreground="White" Content="Pause" Grid.Column="4" Grid.Row="13" HorizontalAlignment="Left"  Grid.ColumnSpan="4" VerticalAlignment="Top" Click="Pause_Click"/>
+        <ProgressBar x:Name="playheadBar" Grid.Column="1" Grid.ColumnSpan="14" Grid.Row="0" HorizontalAlignment="Stretch" Height="15" Grid.RowSpan="1" VerticalAlignment="Bottom"/>
+
         <Rectangle x:Name="loc1" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc1tap"/>
         <Rectangle x:Name="loc2" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc2tap"/>
         <Rectangle x:Name="loc3" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc3tap"/>
@@ -382,11 +296,6 @@
         <Rectangle x:Name="loc12" Grid.Row="0" Grid.Column="12" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc12tap"/>
         <Rectangle x:Name="loc13" Grid.Row="0" Grid.Column="13" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc13tap"/>
         <Rectangle x:Name="loc14" Grid.Row="0" Grid.Column="14" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc14tap"/>
-        <Rectangle x:Name="loc16" Grid.Row="0" Grid.Column="16" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc16tap"/>
-        <Rectangle x:Name="loc17" Grid.Row="0" Grid.Column="17" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc17tap"/>
-        <Rectangle x:Name="loc18" Grid.Row="0" Grid.Column="18" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc18tap"/>
-        <Rectangle x:Name="loc19" Grid.Row="0" Grid.Column="19" HorizontalAlignment="Stretch" Height="15" Fill="Transparent" VerticalAlignment="Bottom" Tapped="loc19tap"/>
-
 
         <MediaElement x:Name="_1000000" Source="sounds\1000000.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
         <MediaElement x:Name="_1000001" Source="sounds\1000001.wav" AutoPlay="false" AudioCategory="Media" AreTransportControlsEnabled="False"/>
@@ -459,6 +368,6 @@
         <Image x:Name="chaticon" Tapped="sampleChat" Source="Assets/instrument-icons/chat.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
         <Image x:Name="tomicon" Tapped="sampleTom" Source="Assets/instrument-icons/tom.png" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" Height="20" Width="20"  Grid.RowSpan="1" VerticalAlignment="Center"/>
 
-        
+
     </Grid>
 </Page>

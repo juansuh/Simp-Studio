@@ -7,6 +7,8 @@
 
 #include "MainPage.g.h"
 #include "TrackPage44.xaml.h"
+#include "TrackPage34.xaml.h"
+#include "TrackPage68.xaml.h"
 
 namespace SimpG
 {
